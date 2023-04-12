@@ -62,4 +62,4 @@ clean: clean-yew clean-tauri
 
 # Run the api
 api:
-	cd api && cargo rund"
+	cd api && cargo rund
