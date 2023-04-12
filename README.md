@@ -25,7 +25,7 @@ Pre-built binaries for Windows, macOS and Linux can be found in the [latest rele
 > ⚠️ Prerequisites
 > 
 > * [Rust](https://www.rust-lang.org/tools/install)
-> * [Make](https://www.gnu.org/software/make/#download)
+> * [Make](https://www.gnu.org/software/make/#download) or [just](https://github.com/casey/just)
 
 ```bash
 git clone https://github.com/hiro-codes/bolt
@@ -36,12 +36,13 @@ cd bolt
 ```
 
 ```bash
-make setup
+just setup # or make setup
 ```
 
 ```bash
-make build
+just build # or make build
 ```
+
 
 ## Features 🚧
  * [x] Http Requests
