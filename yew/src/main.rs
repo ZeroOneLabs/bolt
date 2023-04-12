@@ -15,6 +15,9 @@ mod view;
 // #[wasm_bindgen(module = "/script.js")]
 // extern "C" {}
 
+// TODO: enter button to send
+// TODO: Copy response body button 
+
 // Define the possible messages which can be sent to the component
 #[derive(Clone)]
 pub enum Msg {
