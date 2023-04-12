@@ -240,7 +240,14 @@ body {
 }
 
 .respheaders {
-	height: 200px;
+	background-color: rgb(3, 7, 13);
+	height: 100%;
+	overflow: scroll;
+}
+
+.reqheaders {
+	background-color: rgb(3, 7, 13);
+	height: 100%;
 	overflow: scroll;
 }
 

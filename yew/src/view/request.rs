@@ -75,13 +75,15 @@ pub fn request(bctx: &mut BoltContext) -> Html {
                         { for request.params.iter().enumerate().map(|(index, header)| view::param::render_params(bctx, index, request.params.len(), &header[0], &header[1])) }
                     </table>
                 } else if request.req_tab == 3 {
-                    <table>
-                        <tr>
-                            <th>{"Header"}</th>
-                            <th>{"Value"}</th>
-                        </tr>
-                        { for request.headers.iter().enumerate().map(|(index, header)| view::header::render_reqheader(bctx, index, request.headers.len(), &header[0], &header[1])) }
-                    </table>
+                    <div class="reqheaders">    
+                        <table>
+                            <tr>
+                                <th>{"Header"}</th>
+                                <th>{"Value"}</th>
+                            </tr>
+                            { for request.headers.iter().enumerate().map(|(index, header)| view::header::render_reqheader(bctx, index, request.headers.len(), &header[0], &header[1])) }
+                        </table>
+                    </div>
                 }
             </div>
         }
