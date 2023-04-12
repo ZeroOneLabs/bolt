@@ -1,0 +1,58 @@
+#!/usr/bin/env just --justfile
+
+_default: build
+
+# Install the dependencies
+setup:
+	cargo install tauri-cli
+	cargo install trunk
+	rustup target add wasm32-unknown-unknown
+
+
+# Build the project
+build: build-yew build-tauri
+	cp -r ./tauri/target/release/bundle ./target
+
+# Run the project
+run: build-yew watch-tauri
+
+# Run the project in development mode (with hot reload)
+watch:
+	just watch-yew &
+	just watch-tauri
+
+# Build the backend
+build-yew:
+	cd yew && trunk build -d ../tauri/dist --filehash false
+	cd yew && cp ./script.js ../tauri/dist
+
+# Build the frontend
+build-tauri:
+	cd tauri && cargo tauri build
+
+# Run the tauri app in development mode
+watch-tauri:
+	cargo tauri dev
+
+# Run the yew app in development mode
+watch-yew:
+	cd yew && trunk watch -d ../tauri/dist
+
+# Run the backend
+web: build-yew
+	cd ./tauri/dist && http-server -p 3000
+
+# Clean the frontend project
+clean-yew:
+	cd yew && cargo clean
+
+# Clean the backend project
+clean-tauri:
+	cd tauri && cargo clean
+
+# Clean the project
+clean: clean-yew clean-tauri
+
+# Run the api r
+api:
+	cd api && cargo rund"
