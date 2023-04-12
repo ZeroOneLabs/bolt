@@ -49,7 +49,8 @@ make build
  * [ ] Testing and benchmarking
  * [ ] Websockets
  * [ ] Logging
- 
+ * [ ] TCP/UDP
+
 ## Contributors ✨
 
 <a href="https://github.com/hiro-codes/bolt/graphs/contributors">
