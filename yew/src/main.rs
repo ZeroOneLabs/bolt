@@ -1,4 +1,3 @@
-// use web_sys::MouseEvent;
 use crate::utils::*;
 use futures::stream::StreamExt;
 use serde::{Deserialize, Serialize};
@@ -183,7 +182,6 @@ impl Collection {
     }
 }
 
-// #[derive(Clone)]
 pub struct BoltState {
     bctx: BoltContext,
 }
@@ -192,7 +190,6 @@ pub struct BoltState {
 pub struct BoltContext {
     link: Option<Scope<BoltApp>>,
 
-    // style: StyleSource,
     page: Page,
     main_current: usize,
     col_current: Vec<usize>,
@@ -207,7 +204,6 @@ impl BoltContext {
         let bctx = BoltContext {
             link: None,
 
-            // style: style::style::get_styles(),
             main_col: Collection::new(),
             collections: vec![],
             page: Page::Home,
@@ -251,22 +247,11 @@ impl Component for BoltApp {
 
         state.bctx.main_col.requests.push(Request::new());
 
-        // let mut first_collection = Collection::new();
-        // first_collection.requests.push(Request::new());
-        // state.bctx.collections.push(first_collection);
-
         Self {}
     }
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         let mut state = GLOBAL_STATE.lock().unwrap();
-        // let mut bctx = &state.bctx;
-
-        // drop(state);
-
-        // if !state.bctx.resized {
-        // resizable(&mut state.bctx);
-        // }
 
         let render: bool = process::update::process(&mut state.bctx, msg);
 
@@ -276,13 +261,7 @@ impl Component for BoltApp {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         let mut state = GLOBAL_STATE.lock().unwrap();
 
-        // let bctx = &mut state.bctx.clone();
-
         let page = state.bctx.page.clone();
-
-        // let req_tab = bctx.req_tab;
-
-        // drop(state);
 
         if page == Page::Home {
             view::home::home_view(&mut state.bctx)

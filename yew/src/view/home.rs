@@ -1,6 +1,5 @@
 use crate::BoltContext;
 use crate::view;
-// use stylist::yew::Global;
 use yew::{html, Html};
 
 pub fn home_view(bctx: &mut BoltContext) -> Html {

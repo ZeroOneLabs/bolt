@@ -33,7 +33,6 @@ pub fn request(bctx: &mut BoltContext) -> Html {
 
     let method = request.method.to_string();
 
-    // FIXME: method
     html! {
         <div class="req">
         if can_display {
@@ -47,7 +46,7 @@ pub fn request(bctx: &mut BoltContext) -> Html {
                         <option value="head" selected={if method == "head" { true } else { false }}>{"HEAD"}</option>
                         <option value="patch" selected={if method == "patch" { true } else { false }}>{"PATCH"}</option>
                         <option value="options" selected={if method == "options" { true } else { false }}>{"OPTIONS"}</option>
-                        <option value="copy" selected={if method == "copy" { true } else { false }}>{"COPY"}</option>
+                        <option value="connect" selected={if method == "connect" { true } else { false }}>{"CONNECT"}</option>
                     </select>
                 </div>
 
