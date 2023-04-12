@@ -26,8 +26,6 @@ pub fn _bolt_log(log: &str) {
 }
 
 pub fn open_link(link: String) {
-    // webbrowser::open("https://github.com/hiro-codes/bolt").unwrap();
-
     #[derive(Serialize, Deserialize)]
     struct Payload {
         link: String,
@@ -282,7 +280,6 @@ pub fn parse_url(url: String, params: Vec<Vec<String>>) -> String {
 
     for (i, param) in params.iter().enumerate() {
         if param[0] == "" || param[1] == "" {
-            // bolt_panic("Param at index {i} has empty field");
             continue;
         }
 

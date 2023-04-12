@@ -6,8 +6,6 @@ use crate::Msg;
 use crate::Page;
 use crate::Request;
 
-// FIXME: Collection checks
-
 pub fn process(bctx: &mut BoltContext, msg: Msg) -> bool {
     match msg {
         Msg::SelectedMethod(meth) => {
@@ -24,13 +22,8 @@ pub fn process(bctx: &mut BoltContext, msg: Msg) -> bool {
 
         Msg::SendPressed => {
             if bctx.page == Page::Home {
-                // let current = bctx.main_current;
-                // bctx.main_col.requests[current].request_index = current;
-
-                // if state.requests[current].body != "" {
                 let req = bctx.main_col.requests[bctx.main_current].clone();
                 send_request(req);
-                // }
             } else {
                 let current = &bctx.col_current;
                 let req = bctx.collections[current[0]].requests[current[1]].clone();
@@ -169,8 +162,6 @@ pub fn process(bctx: &mut BoltContext, msg: Msg) -> bool {
             let mut new_collection = Collection::new();
 
             new_collection.name = new_collection.name + &(bctx.collections.len() + 1).to_string();
-            // new_collection.requests.push(Request::new());
-
             bctx.collections.push(new_collection);
 
             return true;
@@ -299,12 +290,7 @@ pub fn process(bctx: &mut BoltContext, msg: Msg) -> bool {
         }
 
         Msg::RemoveRequest(index) => {
-            // if bctx.main_col.requests.len() > 1 {
             bctx.main_col.requests.remove(index);
-            // } else {
-            // bctx.main_col.requests = vec![Request::new()];
-            // }
-
             if bctx.main_col.requests.len() > 0
                 && bctx.main_current > bctx.main_col.requests.len() - 1
             {
@@ -315,12 +301,7 @@ pub fn process(bctx: &mut BoltContext, msg: Msg) -> bool {
         }
 
         Msg::RemoveFromCollection(col_index, req_index) => {
-            // if bctx.collections[col_index].requests.len() > 1 {
             bctx.collections[col_index].requests.remove(req_index);
-            // } else {
-            // bctx.collections[col_index].requests = vec![Request::new()];
-            // }
-
             bctx.col_current = vec![0, 0];
 
             return true;

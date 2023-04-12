@@ -52,20 +52,11 @@ window.onload = function() {
 
 
       let whole = document.documentElement.scrollHeight;
-
-
-      // console.log("whole size is ", whole)
-      
+     
       let resp_size = whole - req_size - 90;
 
-      // console.log("resp size is ", resp_size)
-      
       resp.style.height = `${resp_size}px`;
       
-      // let resp_body_size = resp.clientHeight - 30;
-      // console.log("body size is ", resp_body_size)
-      
-      // respbody.style.height = `${resp_body_size}px`;
     }
 
     init_resize();    

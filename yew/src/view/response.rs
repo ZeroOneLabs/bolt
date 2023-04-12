@@ -7,8 +7,7 @@ use crate::ResponseType;
 use yew::{html, AttrValue, Html};
 
 pub fn response(bctx: &mut BoltContext) -> Html {
-    // let resp_tab = bctx.resp_tab;
-    let link = bctx.link.as_ref().unwrap();
+   let link = bctx.link.as_ref().unwrap();
 
     let mut can_display = false;
 
