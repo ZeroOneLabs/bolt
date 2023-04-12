@@ -28,12 +28,12 @@ watch:
 	just watch-yew &
 	just watch-tauri
 
-# Build the backend
+# Build the frontend
 build-yew:
 	cd yew && trunk build -d ../tauri/dist --filehash false
 	cd yew && cp ./script.js ../tauri/dist
 
-# Build the frontend
+# Build the backend
 build-tauri:
 	cd tauri && cargo tauri build
 
@@ -45,7 +45,7 @@ watch-tauri:
 watch-yew:
 	cd yew && trunk watch -d ../tauri/dist
 
-# Run the backend
+# Run the frontend
 web: build-yew
 	cd ./tauri/dist && http-server -p 3000
 
@@ -60,6 +60,6 @@ clean-tauri:
 # Clean the project
 clean: clean-yew clean-tauri
 
-# Run the api r
+# Run the api
 api:
 	cd api && cargo rund"
