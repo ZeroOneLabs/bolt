@@ -2,6 +2,13 @@
 
 _default: build
 
+alias s := setup
+alias b := build
+alias r := run
+alias w := watch
+alias c := clean
+alias a := api
+
 # Install the dependencies
 setup:
 	cargo install tauri-cli
