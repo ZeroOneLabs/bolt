@@ -24,7 +24,7 @@ Pre-built binaries for Windows, macOS and Linux can be found in the [latest rele
 
 > ⚠️ Prerequisites
 >
-> -   [rustup][https://rustup.rs/]
+> -   [rustup](https://rustup.rs/)
 > -   [Make](https://www.gnu.org/software/make/#download) or [just](https://github.com/casey/just)
 
 ```bash
